@@ -60,7 +60,7 @@ describe('Map/reduce lab', () => {
 
   describe("Showing off", function () {
     it('should add the appropriate amount of table rows to the HTML', function () {
-      const $ = typeof cheerio !== 'undefined' ? cheerio.load(document.body.innerHTML) : document.querySelectorAll;
+      const $ = typeof cheerio !== 'undefined' ? cheerio.load(document.body.innerHTML) : jQuery;
       const $rows = $('#results > tr');
       expect($rows.length).toEqual(nonAutomaticIssues.length);
     });
