@@ -1,23 +1,4 @@
-const expect = require('expect');
-
-const fs = require('fs');
-const cheerio = require('cheerio');
-const jsdom = require('mocha-jsdom');
-const path = require('path');
-const babel = require('babel-core');
-
-const html = fs.readFileSync(path.resolve(__dirname, '..', 'index.html'), 'utf8');
-
-const babelResult = babel.transformFileSync(path.resolve(__dirname, '..', 'index.js'), {
-  presets: ['es2015']
-});
-
 describe('Map/reduce lab', () => {
-  jsdom({
-    html,
-    src: babelResult.code
-  });
-
   describe('Updating the API', function () {
     it('should have an `issuesWithUpdatedApiUrl` array', function () {
       expect(issuesWithUpdatedApiUrl).toBeAn('array');
@@ -79,7 +60,7 @@ describe('Map/reduce lab', () => {
 
   describe("Showing off", function () {
     it('should add the appropriate amount of table rows to the HTML', function () {
-      const $ = cheerio.load(document.body.innerHTML);
+      const $ = typeof cheerio !== 'undefined' ? cheerio.load(document.body.innerHTML) : document.querySelectorAll;
       const $rows = $('#results > tr');
       expect($rows.length).toEqual(nonAutomaticIssues.length);
     });
