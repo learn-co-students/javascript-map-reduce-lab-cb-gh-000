@@ -15,8 +15,7 @@ In this lab, we're going to work with GitHub API data — more specifically, iss
 analyze this data using `.map()` and `.reduce()`, providing us with (some not so) valuable insights!
 
 ## Updating the API
-Let's say GitHub has updated the URL to their API to a new one. That means we're using outdated data! Let's bring our
-data up-to-date.
+Let's say GitHub has updated their API URL. That means we're using old data! Let's bring our data up-to-date.
 
 * Create a variable called `issuesWithUpdatedApiUrl`
 * The value of this variable is the mapped `issues` array, replacing any mention of `'api.github.com'` (in `issue.url`)
