@@ -1,13 +1,13 @@
-JavaScript Map-Reduce Lab
----
+# JavaScript Map-Reduce Lab
 
-## Objectives
 
-1. Practice using `reduce()` on real data
-2. Practice using `map()` on real data
-3. Practice using `map()` and `reduce()` together
+## Overview
+
+In this lab, you'll practice using `reduce()` and `map()` both separately and together on real data. 
+
 
 ## Introduction
+
 This is it, the final challenge! Now that we're confident in our ability to use `.map()` and `.reduce()`, these
 challenges should prove sufficiently easy!
 
