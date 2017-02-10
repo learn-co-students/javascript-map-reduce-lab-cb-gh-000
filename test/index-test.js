@@ -50,6 +50,7 @@ describe('Map/reduce lab', () => {
   describe("I'm not a robot", function () {
     it('should have a `nonAutomaticIssues` array', function () {
       expect(nonAutomaticIssues).toBeAn('array');
+      expect(nonAutomaticIssues.length).toBeGreaterThan(0);
     });
 
     it('should only contain issues that are not created automatically', function () {
@@ -62,6 +63,7 @@ describe('Map/reduce lab', () => {
     it('should add the appropriate amount of table rows to the HTML', function () {
       const $ = typeof cheerio !== 'undefined' ? cheerio.load(document.body.innerHTML) : jQuery;
       const $rows = $('#results > tr');
+      expect($rows.length).toBeGreaterThan(0);
       expect($rows.length).toEqual(nonAutomaticIssues.length);
     });
   });
