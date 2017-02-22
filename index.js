@@ -33,7 +33,7 @@ const issues = [
     "id": 161524199,
     "number": 1,
     "state": "closed",
-    "url": "https://api.github.com/repos/pletcher/test_repo_please_ignore/issues/1"
+    "url": 'api.github.com'
   },
   {
     "body": "This pull request has been automatically created by learn.co.",
@@ -9000,3 +9000,28 @@ const issues = [
     "url": "https://api.github.com/repos/learn-co-curriculum/js-donut-lab/issues/2"
   }
 ];
+var  issuesWithUpdatedApiUrl = issues.map(function(issue){
+  if(issue.url === 'api.github.com'){
+  return Object.assign({},issue,{
+    url:'api-v2.github.com'
+  });}
+
+return Object.assign({},issue);
+})
+
+var commentCountAcrossIssues = issues.map(function(currentValue){
+  return currentValue.comments_count;
+}).reduce(function(previousValue,currentValue){
+  return previousValue+currentValue;})
+
+var openIssues = issues.map(function(issue,index,array){
+
+  if (issue.state!='open')
+return undefined;
+
+  return issue;
+})
+for(i in openIssues){
+  if(i.state === undefined)
+  delete i;
+}
