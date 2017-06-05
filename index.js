@@ -9018,6 +9018,4 @@ let htmlRows = nonAutomaticIssues.map(issue => {
   return '<tr><td>' + issue.body + '</td><td>' + issue.created_at + '</td><td>' + issue.state + '</td></tr>'
 })
 
-$(document).ready(() => {
-  $('tbody#results').html(htmlRows.join(""))
-})
+document.querySelector('tbody#results').innerHTML = htmlRows.join("")
