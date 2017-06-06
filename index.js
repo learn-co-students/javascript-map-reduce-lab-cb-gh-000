@@ -20,6 +20,24 @@ function addNonAutomaticIssue(issues, issue) {
   return updatedIssues;
 }
 
+function addIssueToResults(issue) {
+  const results = document.getElementById("results");
+  const row = document.createElement("tr");
+  const rowBody = document.createElement("td");
+  const rowDate = document.createElement("td");
+  const rowState = document.createElement("td");
+
+  rowBody.innerHTML = issue.body;
+  rowDate.innerHTML = issue.created_at;
+  rowState.innerHTML = issue.state;
+
+  row.appendChild(rowBody);
+  row.appendChild(rowDate);
+  row.appendChild(rowState);
+
+  results.appendChild(row);
+}
+
 const issues = [
   {
     body: "Instructions say GET /team and POST /newteam. Rspec wants GET/newteam and POST/team.",
@@ -9038,3 +9056,5 @@ const commentCountAcrossIssues = commentCounts.reduce((total, currentValue) => {
 
 const openIssues = issues.reduce(addOpenIssue, []);
 const nonAutomaticIssues = issues.reduce(addNonAutomaticIssue, []);
+
+nonAutomaticIssues.forEach(addIssueToResults);
