@@ -1,10 +1,12 @@
 /* eslint-disable quotes */
-function addOpenIssue(openIssues, issue) {
+function addOpenIssue(issues, issue) {
+  const updatedIssues = issues;
+
   if (issue.state === "open") {
-    return [...openIssues, issue];
+    updatedIssues.push(issue);
   }
 
-  return openIssues;
+  return updatedIssues;
 }
 
 const issues = [
@@ -9024,3 +9026,4 @@ const commentCountAcrossIssues = commentCounts.reduce((total, currentValue) => {
 });
 
 const openIssues = issues.reduce(addOpenIssue, []);
+
