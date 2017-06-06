@@ -9,6 +9,17 @@ function addOpenIssue(issues, issue) {
   return updatedIssues;
 }
 
+
+function addNonAutomaticIssue(issues, issue) {
+  const updatedIssues = issues;
+
+  if (issue.body !== "This pull request has been automatically created by learn.co.") {
+    updatedIssues.push(issue);
+  }
+
+  return updatedIssues;
+}
+
 const issues = [
   {
     body: "Instructions say GET /team and POST /newteam. Rspec wants GET/newteam and POST/team.",
@@ -9026,4 +9037,4 @@ const commentCountAcrossIssues = commentCounts.reduce((total, currentValue) => {
 });
 
 const openIssues = issues.reduce(addOpenIssue, []);
-
+const nonAutomaticIssues = issues.reduce(addNonAutomaticIssue, []);
