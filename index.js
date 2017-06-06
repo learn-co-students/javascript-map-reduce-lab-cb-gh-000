@@ -1,3 +1,12 @@
+/* eslint-disable quotes */
+function addOpenIssue(openIssues, issue) {
+  if (issue.state === "open") {
+    return [...openIssues, issue];
+  }
+
+  return openIssues;
+}
+
 const issues = [
   {
     body: "Instructions say GET /team and POST /newteam. Rspec wants GET/newteam and POST/team.",
@@ -9013,3 +9022,5 @@ const commentCounts = issues.map((issue) => {
 const commentCountAcrossIssues = commentCounts.reduce((total, currentValue) => {
   return total + currentValue;
 });
+
+const openIssues = issues.reduce(addOpenIssue, []);
