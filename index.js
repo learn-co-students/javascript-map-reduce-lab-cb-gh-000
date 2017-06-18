@@ -1,3 +1,4 @@
+
 const issues = [
   {
     "body": "Instructions say GET /team and POST /newteam. Rspec wants GET/newteam and POST/team.",
@@ -9000,3 +9001,46 @@ const issues = [
     "url": "https://api.github.com/repos/learn-co-curriculum/js-donut-lab/issues/2"
   }
 ];
+
+var issuesWithUpdatedApiUrl = issues.map(function (issue) {
+  return Object.assign({}, issue, {
+    url: issue.url.replace('api.github.com', 'api-v2.github.com'),
+  });
+});
+
+var commentCountAcrossIssues = (issues.map((issue)=>{return issue.comments_count})).reduce((a,b)=>{return a + b})
+
+var openIssues = issues.filter((issue) => issue.state === 'open');
+
+var nonAutomaticIssues = issues.filter((issue)=> issue.body !==  "This pull request has been automatically created by learn.co.")
+
+var mappedNonAutomaticIssues = nonAutomaticIssues.map(function(issue){ return [issue.body, issue.created_at, issue.state]})
+
+function createTable(tableData) {
+  var table = document.getElementsByTagName("table")[0];
+  var tableBody = document.createElement('tbody');
+
+  tableData.map(function(rowData) {
+    var row = document.createElement('tr');
+
+    rowData.map(function(cellData) {
+      var cell = document.createElement('td');
+      cell.appendChild(document.createTextNode(cellData));
+      row.appendChild(cell);
+    });
+
+    tableBody.appendChild(row);
+  });
+
+  table.appendChild(tableBody);
+  document.body.appendChild(table);
+}
+
+createTable(mappedNonAutomaticIssues);
+
+/*var bodyData = nonAutomaticIssues.map((issue)=> issue.body).join('<br>')
+var dateData = nonAutomaticIssues.map((issue)=> issue.created_at).join('<br>')
+var stateData = nonAutomaticIssues.map((issue)=> issue.state).join('<br>')
+document.getElementById("body").innerHTML = bodyData
+document.getElementById("date").innerHTML = dateData
+document.getElementById("state").innerHTML = stateData*/
