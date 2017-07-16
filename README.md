@@ -3,7 +3,7 @@
 
 ## Overview
 
-In this lab, you'll practice using `reduce()` and `map()` both separately and together on real data. 
+In this lab, you'll practice using `reduce()` and `map()` both separately and together on real data.
 
 
 ## Introduction
