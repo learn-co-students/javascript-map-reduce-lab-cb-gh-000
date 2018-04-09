@@ -11,6 +11,7 @@ const issues = [
   {
     "body": "This pull request has been automatically created by learn.co.",
     "created_at": "2016-03-28 03:25:56 UTC",
+    "comments_count": 1,
     "id": 143883618,
     "number": 3,
     "state": "closed",
