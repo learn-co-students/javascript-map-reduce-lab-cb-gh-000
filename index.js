@@ -9022,9 +9022,8 @@ const nonAutomaticIssues = issues.reduce((nonAutomaticIssues, issue) => {
   }
   return nonAutomaticIssues;
 }, [])
-
-
-document.querySelectorAll("tbody#results").innerHTML = nonAutomaticIssues.map((issue) => {
+const tbody = document.getElementById('results');
+tbody.innerHTML = nonAutomaticIssues.map( issue =>
   `<tr><td>${issue.body}</td><td>${issue.created_at}</td><td>${issue.state}</td></tr>`
-})
+)
 .join('');
